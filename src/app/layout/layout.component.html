@@ -1,0 +1,46 @@
+<div class="ui-g main-section" *ngIf="totalData">
+  <div class="ui-g ui-g-2 ui-g-nopad sidemenu" >
+    <p-menu [model]="items"  ></p-menu>
+  </div>
+  <div class="ui-g ui-g-10 ui-g-nopad" *ngIf="totalData">
+    <div class="right-section">
+      <div>
+        <h3 class="heading">{{curentActionData.name}}</h3>
+      </div>
+      <div>
+        <p-tabView>
+          <p-tabPanel *ngFor="let item of curentActionData.attr"  [header]="item?.name"  [selected]="isSelected(item)"  >
+            <div [ngSwitch]="item.name"  >
+              <div *ngSwitchCase="'Charges'">
+                <app-charges></app-charges>
+              </div>
+              <div *ngSwitchCase="'Directions'">
+                <app-directions></app-directions>
+              </div>
+              <div *ngSwitchCase="'Equipments'">
+                <app-equipments></app-equipments>
+              </div>
+              <div *ngSwitchCase="'Exclusions'">
+                <app-exclusions></app-exclusions>
+              </div>
+              <div *ngSwitchCase="'Expertise'">
+                <app-expertise></app-expertise>
+              </div>
+              <div *ngSwitchCase="'Material List'">
+                <app-matlist></app-matlist>
+              </div>
+              <div *ngSwitchCase="'Measurements'">
+                <app-measurements></app-measurements>
+              </div>
+              <div *ngSwitchCase="'Publications'">
+                <app-publications></app-publications>
+              </div>
+            </div>
+          </p-tabPanel>
+        </p-tabView>
+      </div>
+    </div>
+  </div>
+</div>
+
+

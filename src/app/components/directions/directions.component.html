@@ -1,0 +1,27 @@
+<p-table [value]="directions">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Action</th>
+      <th>Direction Name</th>
+      <th>Sequence</th>
+      <th>MEMO</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-direction let-rowIndex="rowIndex">
+    <tr>
+      <td>
+        <input type="text" pInputText [(ngModel)]="direction.action" name="action_{{rowIndex}}" />
+      </td>
+      <td>
+        <input type="text" pInputText [(ngModel)]="direction.name" name="name_{{rowIndex}}"  />
+      </td>
+      <td>
+        <input type="number" pInputText [(ngModel)]="direction.sequence" name="sequence_{{rowIndex}}"  />
+      </td>
+      <td>
+        <textarea [rows]="2" [(ngModel)]="direction.memo" pInputTextarea autoResize="autoResize" name="memo_{{rowIndex}}"></textarea>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+{{directions | json }}

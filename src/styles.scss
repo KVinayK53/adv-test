@@ -1,0 +1,19 @@
+.flex{
+  display: flex;
+}
+.justify-center {
+  justify-content: center;
+}
+.align-center {
+  align-items: center;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-content-center {
+  display: flex;
+  justify-content: center;
+}
+.ui-table {
+  margin-top:10px;
+}

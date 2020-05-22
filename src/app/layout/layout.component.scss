@@ -1,0 +1,21 @@
+:host{
+  .main-section {
+    margin-top:40px;
+  }
+  .sidemenu {
+    p-menu {
+      width: 100%;
+      ::ng-deep .ui-menu {
+        width: 95%;
+      }
+    }
+  }
+  .right-section {
+    width:100%;
+    background: #ddd;
+    padding: 10px 20px;
+    .heading{
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+<div>
+  Add New Charges
+  <p-button label="Add" [style]="{'margin-left': '5px'}" (onClick)="addCharges()"></p-button>
+</div>
+<p-table [value]="charges">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Type</th>
+      <th>Qty</th>
+      <th>Unit Cost</th>
+      <th>Extended Cost</th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-charge let-rowIndex="rowIndex">
+    <tr>
+      <td>
+        <input type="text" pInputText [(ngModel)]="charge.type" name="type_{{rowIndex}}" />
+      </td>
+      <td>
+        <input type="number" pInputText [(ngModel)]="charge.qty" name="qty_{{rowIndex}}"  />
+      </td>
+      <td>
+        <input type="number" pInputText [(ngModel)]="charge.unitCost" name="unitCost_{{rowIndex}}"  />
+      </td>
+      <td>
+        <input type="number" pInputText [(ngModel)]="charge.extendedCost" name="extendedCost_{{rowIndex}}" />
+      </td>
+      <td>
+        <button pButton type="button" icon="pi pi-trash"  (click)="removeItem(rowIndex)"  class="ui-button-raised ui-button-danger"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+{{charges | json }}

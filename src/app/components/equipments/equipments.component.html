@@ -1,0 +1,35 @@
+<div>
+  Add new Equipment List
+  <p-button label="Add" [style]="{'margin-left': '5px'}" (onClick)="addNewEquipment()"></p-button>
+</div>
+<p-table [value]="equipments">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Item #</th>
+      <th>Description</th>
+      <th>Classification</th>
+      <th>Qty</th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-equipment let-rowIndex="rowIndex">
+    <tr>
+      <td>
+        <input type="number" pInputText [(ngModel)]="equipment.item" name="item_{{rowIndex}}" />
+      </td>
+      <td>
+        <input type="text" pInputText [(ngModel)]="equipment.description" name="desc_{{rowIndex}}"  />
+      </td>
+      <td>
+        <input type="text" pInputText [(ngModel)]="equipment.classification" name="classif_{{rowIndex}}"  />
+      </td>
+      <td>
+        <input type="number" pInputText [(ngModel)]="equipment.qty" name="item_{{rowIndex}}" />
+      </td>
+      <td>
+        <button pButton type="button" icon="pi pi-trash"  (click)="removeItem(rowIndex)"  class="ui-button-raised ui-button-danger"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+{{equipments | json }}

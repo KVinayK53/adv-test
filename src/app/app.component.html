@@ -1,0 +1,25 @@
+<div class="ui-g">
+  <div class="ui-g ui-g-3 ui-g-nopad">
+    <div class="flex-content-center flex-column">
+      <div>
+        <label>Actions</label>
+      </div>
+      <div>
+        <p-dropdown [options]="actions" [(ngModel)]="selectedAction" (onChange)="getAttributes($event)" placeholder="Select Action"
+                    optionLabel="name"></p-dropdown>
+      </div>
+    </div>
+  </div>
+  <div class="ui-g ui-g-6 ui-g-nopad">
+    <div class="flex-content-center flex-column">
+      <div>
+        <label>Actions</label>
+      </div>
+      <div class="flex-content-center">
+        <p-multiSelect [options]="attributes" [(ngModel)]="selectedAttributes" optionLabel="name" [style]="{width: '200px'}"></p-multiSelect>
+        <p-button label="Add" [style]="{'margin-left': '5px'}" (onClick)="addAttributes()"></p-button>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
