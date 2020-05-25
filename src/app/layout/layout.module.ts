@@ -12,25 +12,27 @@ import {ExpertiseModule} from '../components/expertise/expertise.module';
 import {MatlistModule} from '../components/matlist/matlist.module';
 import {MeasurementsModule} from '../components/measurements/measurements.module';
 import {PublicationsModule} from '../components/publications/publications.module';
+import {ButtonModule} from "primeng/button";
 
 
 
 @NgModule({
   declarations: [LayoutComponent],
-  imports: [
-    CommonModule,
-    MenuModule,
-    TabViewModule,
-    TableModule,
-    ChargesModule,
-    DirectionsModule,
-    EquipmentsModule,
-    ExclusionsModule,
-    ExpertiseModule,
-    MatlistModule,
-    MeasurementsModule,
-    PublicationsModule,
-  ],
+    imports: [
+        CommonModule,
+        MenuModule,
+        TabViewModule,
+        TableModule,
+        ChargesModule,
+        DirectionsModule,
+        EquipmentsModule,
+        ExclusionsModule,
+        ExpertiseModule,
+        MatlistModule,
+        MeasurementsModule,
+        PublicationsModule,
+        ButtonModule,
+    ],
   schemas: [NO_ERRORS_SCHEMA]
 })
 export class LayoutModule { }

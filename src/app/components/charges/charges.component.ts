@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {ICharges} from '../../models/charges.model';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Charges, ICharges} from '../../models/charges.model';
 
 @Component({
   selector: 'app-charges',
@@ -8,21 +8,23 @@ import {ICharges} from '../../models/charges.model';
 })
 export class ChargesComponent implements OnInit {
 
-  charges: ICharges[] = [];
+  @Input() charges: ICharges[] = [];
+  @Output() chargesChange = new EventEmitter();
 
   constructor() {
 
   }
 
   ngOnInit() {
-    this.addCharges();
+
   }
 
   addCharges() {
-    this.charges.push(new ICharges('', 0, 0, 0));
+    this.charges.push(new Charges());
   }
 
   removeItem(index) {
     this.charges.splice(index, 1);
   }
+
 }

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IDirection} from '../../models/directions.model';
-import {IEquipment} from '../../models/equipment.model';
+import {Equipment, IEquipment} from '../../models/equipment.model';
 
 @Component({
   selector: 'app-equipments',
@@ -9,18 +9,18 @@ import {IEquipment} from '../../models/equipment.model';
 })
 export class EquipmentsComponent implements OnInit {
 
-  equipments: IEquipment[] = [];
+  @Input() equipments: IEquipment[] = [];
+  @Output() equipmentsChange = new EventEmitter();
 
   constructor() {
 
   }
 
   ngOnInit() {
-    this.addNewEquipment();
   }
 
   addNewEquipment() {
-    this.equipments.push(new IEquipment(0, '', '', 0));
+    this.equipments.push(new Equipment(0, '', '', 0));
   }
 
   removeItem(index) {

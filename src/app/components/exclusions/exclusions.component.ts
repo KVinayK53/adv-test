@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IEquipment} from '../../models/equipment.model';
-import {IExclusion} from '../../models/exclusions.model';
+import {Exclusion, IExclusion} from '../../models/exclusions.model';
 
 @Component({
   selector: 'app-exclusions',
@@ -9,18 +9,18 @@ import {IExclusion} from '../../models/exclusions.model';
 })
 export class ExclusionsComponent implements OnInit {
 
-  exclusions: IExclusion[] = [];
+  @Input() exclusions: IExclusion[] = [];
+  @Output() exclusionsChange = new EventEmitter();
 
   constructor() {
 
   }
 
   ngOnInit() {
-    this.addNewExclusion();
   }
 
   addNewExclusion() {
-    this.exclusions.push(new IExclusion('', 0, 0, 0));
+    this.exclusions.push(new Exclusion());
   }
 
   removeItem(index) {

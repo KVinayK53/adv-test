@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ActionService} from '../service/action.service';
 import * as _ from 'lodash';
+import {ActionAttributeData, IActionAttributeData} from "../models/action-attribute-data.model";
 
 @Component({
   selector: 'app-layout',
@@ -15,13 +16,13 @@ export class LayoutComponent implements OnInit {
   totalData: any;
   items: string[] = [];
   selectedTab: any;
+  totalActionData: IActionAttributeData;
 
   constructor(
     private route: ActivatedRoute,
     private actionSer: ActionService,
     private router: Router
   ) {
-    debugger
     this.route.paramMap.subscribe(params => {
       if (params.get('id')) {
         this.actionId = parseInt(params.get('id'), 10);
@@ -43,7 +44,7 @@ export class LayoutComponent implements OnInit {
   }
 
   ngOnInit() {
-    debugger
+
   }
 
   private fetchData(actionId: number) {
@@ -51,9 +52,15 @@ export class LayoutComponent implements OnInit {
     if (this.curentActionData) {
       this.selectedTab = this.curentActionData.attr[0];
     }
+    this.totalActionData = new ActionAttributeData();
   }
 
   isSelected(item) {
     return (this.selectedTab.id === item.id) ? true : false;
   }
+
+  saveData() {
+    console.log(JSON.stringify(this.totalActionData));
+  }
+
 }

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {IDirection} from '../../models/directions.model';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Direction, IDirection} from '../../models/directions.model';
 
 @Component({
   selector: 'app-directions',
@@ -8,22 +8,18 @@ import {IDirection} from '../../models/directions.model';
 })
 export class DirectionsComponent implements OnInit {
 
-  directions: IDirection[] = [];
+  @Input() directions: IDirection;
+  @Output() directionChange = new EventEmitter();
+
+  directionData = [];
 
   constructor() {
 
   }
 
   ngOnInit() {
-    this.addNewDirection();
+    this.directionData.push(this.directions);
   }
 
-  addNewDirection() {
-    this.directions.push(new IDirection('', '', 0, ''));
-  }
-
-  removeItem(index) {
-    this.directions.splice(index, 1);
-  }
 
 }

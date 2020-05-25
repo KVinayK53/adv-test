@@ -12,16 +12,16 @@
           <p-tabPanel *ngFor="let item of curentActionData.attr"  [header]="item?.name"  [selected]="isSelected(item)"  >
             <div [ngSwitch]="item.name"  >
               <div *ngSwitchCase="'Charges'">
-                <app-charges></app-charges>
+                <app-charges [charges]="totalActionData?.charges" ></app-charges>
               </div>
               <div *ngSwitchCase="'Directions'">
-                <app-directions></app-directions>
+                <app-directions [directions]="totalActionData?.directions" ></app-directions>
               </div>
               <div *ngSwitchCase="'Equipments'">
-                <app-equipments></app-equipments>
+                <app-equipments [equipments]="totalActionData?.equipments" ></app-equipments>
               </div>
               <div *ngSwitchCase="'Exclusions'">
-                <app-exclusions></app-exclusions>
+                <app-exclusions [exclusions]="totalActionData?.exclusions" ></app-exclusions>
               </div>
               <div *ngSwitchCase="'Expertise'">
                 <app-expertise></app-expertise>
@@ -39,8 +39,12 @@
           </p-tabPanel>
         </p-tabView>
       </div>
+      <div style="text-align: right;margin-top:10px;">
+        <p-button label="Save Workflow" [style]="{'float': 'right'}" (onClick)="saveData()"></p-button>
+      </div>
     </div>
   </div>
 </div>
+{{totalActionData | json }}
 
 
